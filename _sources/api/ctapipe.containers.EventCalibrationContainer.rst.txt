@@ -1,0 +1,23 @@
+EventCalibrationContainer
+=========================
+
+.. currentmodule:: ctapipe.containers
+
+.. autoclass:: EventCalibrationContainer
+   :show-inheritance:
+
+   .. rubric:: Attributes Summary
+
+   .. autosummary::
+
+      ~EventCalibrationContainer.meta
+      ~EventCalibrationContainer.prefix
+      ~EventCalibrationContainer.tel
+      ~EventCalibrationContainer.tels_with_data
+
+   .. rubric:: Attributes Documentation
+
+   .. autoattribute:: meta
+   .. autoattribute:: prefix
+   .. autoattribute:: tel
+   .. autoattribute:: tels_with_data

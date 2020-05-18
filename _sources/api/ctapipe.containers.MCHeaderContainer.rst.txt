@@ -1,0 +1,97 @@
+MCHeaderContainer
+=================
+
+.. currentmodule:: ctapipe.containers
+
+.. autoclass:: MCHeaderContainer
+   :show-inheritance:
+
+   .. rubric:: Attributes Summary
+
+   .. autosummary::
+
+      ~MCHeaderContainer.atmosphere
+      ~MCHeaderContainer.core_pos_mode
+      ~MCHeaderContainer.corsika_bunchsize
+      ~MCHeaderContainer.corsika_high_E_detail
+      ~MCHeaderContainer.corsika_high_E_model
+      ~MCHeaderContainer.corsika_iact_options
+      ~MCHeaderContainer.corsika_low_E_detail
+      ~MCHeaderContainer.corsika_low_E_model
+      ~MCHeaderContainer.corsika_version
+      ~MCHeaderContainer.corsika_wlen_max
+      ~MCHeaderContainer.corsika_wlen_min
+      ~MCHeaderContainer.detector_prog_id
+      ~MCHeaderContainer.detector_prog_start
+      ~MCHeaderContainer.diffuse
+      ~MCHeaderContainer.energy_range_max
+      ~MCHeaderContainer.energy_range_min
+      ~MCHeaderContainer.injection_height
+      ~MCHeaderContainer.max_alt
+      ~MCHeaderContainer.max_az
+      ~MCHeaderContainer.max_scatter_range
+      ~MCHeaderContainer.max_viewcone_radius
+      ~MCHeaderContainer.meta
+      ~MCHeaderContainer.min_alt
+      ~MCHeaderContainer.min_az
+      ~MCHeaderContainer.min_scatter_range
+      ~MCHeaderContainer.min_viewcone_radius
+      ~MCHeaderContainer.num_showers
+      ~MCHeaderContainer.prefix
+      ~MCHeaderContainer.prod_site_B_declination
+      ~MCHeaderContainer.prod_site_B_inclination
+      ~MCHeaderContainer.prod_site_B_total
+      ~MCHeaderContainer.prod_site_alt
+      ~MCHeaderContainer.prod_site_array
+      ~MCHeaderContainer.prod_site_coord
+      ~MCHeaderContainer.prod_site_subarray
+      ~MCHeaderContainer.run_array_direction
+      ~MCHeaderContainer.shower_prog_id
+      ~MCHeaderContainer.shower_prog_start
+      ~MCHeaderContainer.shower_reuse
+      ~MCHeaderContainer.simtel_version
+      ~MCHeaderContainer.spectral_index
+
+   .. rubric:: Attributes Documentation
+
+   .. autoattribute:: atmosphere
+   .. autoattribute:: core_pos_mode
+   .. autoattribute:: corsika_bunchsize
+   .. autoattribute:: corsika_high_E_detail
+   .. autoattribute:: corsika_high_E_model
+   .. autoattribute:: corsika_iact_options
+   .. autoattribute:: corsika_low_E_detail
+   .. autoattribute:: corsika_low_E_model
+   .. autoattribute:: corsika_version
+   .. autoattribute:: corsika_wlen_max
+   .. autoattribute:: corsika_wlen_min
+   .. autoattribute:: detector_prog_id
+   .. autoattribute:: detector_prog_start
+   .. autoattribute:: diffuse
+   .. autoattribute:: energy_range_max
+   .. autoattribute:: energy_range_min
+   .. autoattribute:: injection_height
+   .. autoattribute:: max_alt
+   .. autoattribute:: max_az
+   .. autoattribute:: max_scatter_range
+   .. autoattribute:: max_viewcone_radius
+   .. autoattribute:: meta
+   .. autoattribute:: min_alt
+   .. autoattribute:: min_az
+   .. autoattribute:: min_scatter_range
+   .. autoattribute:: min_viewcone_radius
+   .. autoattribute:: num_showers
+   .. autoattribute:: prefix
+   .. autoattribute:: prod_site_B_declination
+   .. autoattribute:: prod_site_B_inclination
+   .. autoattribute:: prod_site_B_total
+   .. autoattribute:: prod_site_alt
+   .. autoattribute:: prod_site_array
+   .. autoattribute:: prod_site_coord
+   .. autoattribute:: prod_site_subarray
+   .. autoattribute:: run_array_direction
+   .. autoattribute:: shower_prog_id
+   .. autoattribute:: shower_prog_start
+   .. autoattribute:: shower_reuse
+   .. autoattribute:: simtel_version
+   .. autoattribute:: spectral_index

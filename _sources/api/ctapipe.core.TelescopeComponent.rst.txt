@@ -1,0 +1,7 @@
+TelescopeComponent
+==================
+
+.. currentmodule:: ctapipe.core
+
+.. autoclass:: TelescopeComponent
+   :show-inheritance:

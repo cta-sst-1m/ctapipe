@@ -1,0 +1,6 @@
+event_source
+============
+
+.. currentmodule:: ctapipe.io
+
+.. autofunction:: event_source

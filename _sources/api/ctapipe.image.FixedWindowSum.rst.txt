@@ -1,0 +1,29 @@
+FixedWindowSum
+==============
+
+.. currentmodule:: ctapipe.image
+
+.. autoclass:: FixedWindowSum
+   :show-inheritance:
+
+   .. rubric:: Attributes Summary
+
+   .. autosummary::
+
+      ~FixedWindowSum.window_start
+      ~FixedWindowSum.window_width
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~FixedWindowSum.__call__
+
+   .. rubric:: Attributes Documentation
+
+   .. autoattribute:: window_start
+   .. autoattribute:: window_width
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: __call__

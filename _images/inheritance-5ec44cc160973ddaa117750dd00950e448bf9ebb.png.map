@@ -1,0 +1,10 @@
+<map id="inheritance82dccf6098" name="inheritance82dccf6098">
+<area shape="rect" id="node1" title="Base class of all Components." alt="" coords="418,77,491,96"/>
+<area shape="rect" id="node8" title="This is the base class from which all direction reconstruction" alt="" coords="526,77,608,96"/>
+<area shape="rect" id="node4" title="This class collects one regressor for every camera type &#45;&#45; given" alt="" coords="172,41,270,59"/>
+<area shape="rect" id="node5" title="This class collects one model for every camera type &#45;&#45; given by" alt="" coords="4,41,137,59"/>
+<area shape="rect" id="node6" title="The base class for all classes that have descriptors." alt="" coords="25,77,115,96"/>
+<area shape="rect" id="node7" title="class that reconstructs the direction of an atmospheric shower" alt="" coords="649,58,759,77"/>
+<area shape="rect" id="node9" title="This class is an implementation if the impact_reco Monte Carlo" alt="" coords="644,95,764,114"/>
+<area shape="rect" id="node10" title="Class that calculates the height of the shower maximum" alt="" coords="11,4,130,23"/>
+</map>

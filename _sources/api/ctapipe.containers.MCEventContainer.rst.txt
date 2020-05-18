@@ -1,0 +1,37 @@
+MCEventContainer
+================
+
+.. currentmodule:: ctapipe.containers
+
+.. autoclass:: MCEventContainer
+   :show-inheritance:
+
+   .. rubric:: Attributes Summary
+
+   .. autosummary::
+
+      ~MCEventContainer.alt
+      ~MCEventContainer.az
+      ~MCEventContainer.core_x
+      ~MCEventContainer.core_y
+      ~MCEventContainer.energy
+      ~MCEventContainer.h_first_int
+      ~MCEventContainer.meta
+      ~MCEventContainer.prefix
+      ~MCEventContainer.shower_primary_id
+      ~MCEventContainer.tel
+      ~MCEventContainer.x_max
+
+   .. rubric:: Attributes Documentation
+
+   .. autoattribute:: alt
+   .. autoattribute:: az
+   .. autoattribute:: core_x
+   .. autoattribute:: core_y
+   .. autoattribute:: energy
+   .. autoattribute:: h_first_int
+   .. autoattribute:: meta
+   .. autoattribute:: prefix
+   .. autoattribute:: shower_primary_id
+   .. autoattribute:: tel
+   .. autoattribute:: x_max

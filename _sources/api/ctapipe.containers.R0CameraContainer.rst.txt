@@ -1,0 +1,29 @@
+R0CameraContainer
+=================
+
+.. currentmodule:: ctapipe.containers
+
+.. autoclass:: R0CameraContainer
+   :show-inheritance:
+
+   .. rubric:: Attributes Summary
+
+   .. autosummary::
+
+      ~R0CameraContainer.meta
+      ~R0CameraContainer.num_trig_pix
+      ~R0CameraContainer.prefix
+      ~R0CameraContainer.trig_pix_id
+      ~R0CameraContainer.trigger_time
+      ~R0CameraContainer.trigger_type
+      ~R0CameraContainer.waveform
+
+   .. rubric:: Attributes Documentation
+
+   .. autoattribute:: meta
+   .. autoattribute:: num_trig_pix
+   .. autoattribute:: prefix
+   .. autoattribute:: trig_pix_id
+   .. autoattribute:: trigger_time
+   .. autoattribute:: trigger_type
+   .. autoattribute:: waveform

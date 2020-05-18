@@ -1,0 +1,29 @@
+LocalPeakWindowSum
+==================
+
+.. currentmodule:: ctapipe.image
+
+.. autoclass:: LocalPeakWindowSum
+   :show-inheritance:
+
+   .. rubric:: Attributes Summary
+
+   .. autosummary::
+
+      ~LocalPeakWindowSum.window_shift
+      ~LocalPeakWindowSum.window_width
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~LocalPeakWindowSum.__call__
+
+   .. rubric:: Attributes Documentation
+
+   .. autoattribute:: window_shift
+   .. autoattribute:: window_width
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: __call__

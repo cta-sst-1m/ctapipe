@@ -1,0 +1,1850 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getting Started with ctapipe &mdash; ctapipe vunknown</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Coordinates usage in ctapipe" href="coordinates_example.html" />
+    <link rel="prev" title="Tutorials" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ctapipe
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                unknown
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started For Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Development Guidelines</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Getting Started with ctapipe</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Part-1:-load-and-loop-over-data">Part 1: load and loop over data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Part-2:-Explore-the-instrument-description">Part 2: Explore the instrument description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Part-3:-Apply-some-calibration-and-trace-integration">Part 3: Apply some calibration and trace integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Part-4:-Let’s-put-it-all-together:">Part 4: Let’s put it all together:</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#We-can-now-load-in-the-file-we-created-and-plot-it">We can now load in the file we created and plot it</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="coordinates_example.html">Coordinates usage in ctapipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raw_data_exploration.html">Exploring Raw Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calibrated_data_exploration.html">Explore Calibrated Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="theta_square.html">Make a theta-square plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lst_analysis_bootcamp_2018.html">2018 LST Bootcamp walkthrough</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FAQ.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ctapipe_api/index.html">API Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Change Log</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ctapipe</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Tutorials</a> &raquo;</li>
+        
+      <li>Getting Started with ctapipe</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/tutorials/ctapipe_handson.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Getting-Started-with-ctapipe">
+<h1>Getting Started with ctapipe<a class="headerlink" href="#Getting-Started-with-ctapipe" title="Permalink to this headline">¶</a></h1>
+<p>This hands-on was presented at the Paris CTA Consoritum meeting (K. Kosack)</p>
+<div class="section" id="Part-1:-load-and-loop-over-data">
+<h2>Part 1: load and loop over data<a class="headerlink" href="#Part-1:-load-and-loop-over-data" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">ctapipe.io</span> <span class="kn">import</span> <span class="n">event_source</span>
+<span class="kn">from</span> <span class="nn">ctapipe</span> <span class="kn">import</span> <span class="n">utils</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">path</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">get_dataset_path</span><span class="p">(</span><span class="s2">&quot;gamma_test_large.simtel.gz&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">source</span> <span class="o">=</span> <span class="n">event_source</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">max_events</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">source</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">count</span><span class="p">,</span> <span class="n">event</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">event_id</span><span class="p">,</span> <span class="n">event</span><span class="o">.</span><span class="n">mc</span><span class="o">.</span><span class="n">energy</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0 23703 0.5707105398178101 TeV
+1 31007 1.8637498617172241 TeV
+2 31010 1.8637498617172241 TeV
+3 31012 1.8637498617172241 TeV
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">event</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+ctapipe.containers.EventAndMonDataContainer:
+                       index.*: event indexing information
+                          r0.*: Raw Data
+                          r1.*: R1 Calibrated Data
+                         dl0.*: DL0 Data Volume Reduced Data
+                         dl1.*: DL1 Calibrated image
+                         dl2.*: Reconstructed Shower Information
+                          mc.*: Monte-Carlo data
+                    mcheader.*: Monte-Carlo run header data
+                     trigger.*: central trigger information
+                         count: number of events processed
+                    pointing.*: Array and telescope pointing positions
+                 calibration.*: Container for calibration coefficients for the
+                                current event
+                         mon.*: container for monitoring data (MON)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">event</span><span class="o">.</span><span class="n">r0</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+ctapipe.containers.R0Container:
+                tels_with_data: set of tel_ids for telescopes with data
+                        tel[*]: map of tel_id to R0CameraContainer
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">event_source</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">max_events</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">count</span><span class="p">,</span> <span class="n">event</span><span class="o">.</span><span class="n">r0</span><span class="o">.</span><span class="n">tels_with_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0 {25, 21, 34, 13}
+1 {34, 36, 7, 42, 13, 16, 19, 25, 28}
+2 {58, 28, 46, 68}
+3 {2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 18, 19, 20, 21}
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">event</span><span class="o">.</span><span class="n">r0</span><span class="o">.</span><span class="n">tel</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+ctapipe.containers.R0CameraContainer:
+                  trigger_time: Telescope trigger time, start of waveform
+                                readout, None for MCs
+                  trigger_type: camera&#39;s event trigger type if applicable
+                  num_trig_pix: Number of trigger groups (sectors) listed
+                   trig_pix_id: pixels involved in the camera trigger
+                      waveform: numpy array containing ADC samples(n_channels,
+                                n_pixels, n_samples)
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">r0tel</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">r0</span><span class="o">.</span><span class="n">tel</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">r0tel</span><span class="o">.</span><span class="n">waveform</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[[279, 276, 269, ..., 300, 359, 409],
+        [281, 272, 291, ..., 278, 272, 277],
+        [256, 251, 265, ..., 269, 266, 258],
+        ...,
+        [293, 297, 295, ..., 338, 305, 295],
+        [359, 322, 296, ..., 275, 259, 296],
+        [301, 342, 386, ..., 352, 335, 288]],
+
+       [[300, 301, 301, ..., 295, 298, 304],
+        [294, 295, 298, ..., 298, 299, 296],
+        [299, 300, 299, ..., 299, 300, 301],
+        ...,
+        [301, 297, 299, ..., 303, 297, 299],
+        [307, 304, 301, ..., 297, 300, 300],
+        [302, 303, 307, ..., 303, 303, 299]]], dtype=uint16)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">r0tel</span><span class="o">.</span><span class="n">waveform</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(2, 1855, 30)
+</pre></div></div>
+</div>
+<p>note that this is (<span class="math notranslate nohighlight">\(N_{channels}\)</span>, <span class="math notranslate nohighlight">\(N_{pixels}\)</span>, <span class="math notranslate nohighlight">\(N_{samples}\)</span>)</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">r0tel</span><span class="o">.</span><span class="n">waveform</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.collections.QuadMesh at 0x7f1008426080&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/tutorials_ctapipe_handson_13_1.png" src="../_images/tutorials_ctapipe_handson_13_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r0tel</span><span class="o">.</span><span class="n">waveform</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&lt;matplotlib.lines.Line2D at 0x7f10083b0f60&gt;]
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/tutorials_ctapipe_handson_14_1.png" src="../_images/tutorials_ctapipe_handson_14_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span>
+
+<span class="nd">@interact</span>
+<span class="k">def</span> <span class="nf">view_waveform</span><span class="p">(</span><span class="n">chan</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pix_id</span><span class="o">=</span><span class="mi">200</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r0tel</span><span class="o">.</span><span class="n">waveform</span><span class="p">[</span><span class="n">chan</span><span class="p">,</span> <span class="n">pix_id</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/tutorials_ctapipe_handson_15_0.png" src="../_images/tutorials_ctapipe_handson_15_0.png" />
+</div>
+</div>
+<p>try making this compare 2 waveforms</p>
+</div>
+<div class="section" id="Part-2:-Explore-the-instrument-description">
+<h2>Part 2: Explore the instrument description<a class="headerlink" href="#Part-2:-Explore-the-instrument-description" title="Permalink to this headline">¶</a></h2>
+<p>This is all well and good, but we don’t really know what camera or telescope this is… how do we get instrumental description info?</p>
+<p>Currently this is returned <em>inside</em> the event (it will soon change to be separate in next version or so)</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">subarray</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">subarray</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">subarray</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+SubarrayDescription(name=&#39;MonteCarloArray&#39;, num_tels=98)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">subarray</span><span class="o">.</span><span class="n">peek</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/tutorials_ctapipe_handson_20_0.png" src="../_images/tutorials_ctapipe_handson_20_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">subarray</span><span class="o">.</span><span class="n">to_table</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<i>Table length=98</i>
+<table id="table139706830894248" class="table-striped table-bordered table-condensed">
+<thead><tr><th>tel_id</th><th>pos_x</th><th>pos_y</th><th>pos_z</th><th>name</th><th>type</th><th>num_mirrors</th><th>camera_type</th><th>tel_description</th></tr></thead>
+<thead><tr><th></th><th>m</th><th>m</th><th>m</th><th></th><th></th><th></th><th></th><th></th></tr></thead>
+<thead><tr><th>int16</th><th>float64</th><th>float64</th><th>float64</th><th>str5</th><th>str3</th><th>int64</th><th>str8</th><th>str18</th></tr></thead>
+<tr><td>1</td><td>-20.0</td><td>65.0</td><td>16.0</td><td>LST</td><td>LST</td><td>1</td><td>LSTCam</td><td>LST_LST_LSTCam</td></tr>
+<tr><td>2</td><td>-20.0</td><td>-65.0</td><td>16.0</td><td>LST</td><td>LST</td><td>1</td><td>LSTCam</td><td>LST_LST_LSTCam</td></tr>
+<tr><td>3</td><td>80.0</td><td>0.0</td><td>16.0</td><td>LST</td><td>LST</td><td>1</td><td>LSTCam</td><td>LST_LST_LSTCam</td></tr>
+<tr><td>4</td><td>-120.0</td><td>0.0</td><td>16.0</td><td>LST</td><td>LST</td><td>1</td><td>LSTCam</td><td>LST_LST_LSTCam</td></tr>
+<tr><td>5</td><td>0.0</td><td>0.0</td><td>10.0</td><td>MST</td><td>MST</td><td>1</td><td>FlashCam</td><td>MST_MST_FlashCam</td></tr>
+<tr><td>6</td><td>0.0</td><td>151.1999969482422</td><td>10.0</td><td>MST</td><td>MST</td><td>1</td><td>FlashCam</td><td>MST_MST_FlashCam</td></tr>
+<tr><td>7</td><td>0.0</td><td>-151.1999969482422</td><td>10.0</td><td>MST</td><td>MST</td><td>1</td><td>FlashCam</td><td>MST_MST_FlashCam</td></tr>
+<tr><td>8</td><td>146.65599060058594</td><td>75.5999984741211</td><td>10.0</td><td>MST</td><td>MST</td><td>1</td><td>FlashCam</td><td>MST_MST_FlashCam</td></tr>
+<tr><td>9</td><td>146.65599060058594</td><td>-75.5999984741211</td><td>10.0</td><td>MST</td><td>MST</td><td>1</td><td>FlashCam</td><td>MST_MST_FlashCam</td></tr>
+<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+<tr><td>89</td><td>956.7870483398438</td><td>739.822998046875</td><td>5.0</td><td>ASTRI</td><td>SST</td><td>2</td><td>ASTRICam</td><td>SST_ASTRI_ASTRICam</td></tr>
+<tr><td>90</td><td>956.7870483398438</td><td>-739.822998046875</td><td>5.0</td><td>ASTRI</td><td>SST</td><td>2</td><td>ASTRICam</td><td>SST_ASTRI_ASTRICam</td></tr>
+<tr><td>91</td><td>-239.19699096679688</td><td>1109.7349853515625</td><td>5.0</td><td>ASTRI</td><td>SST</td><td>2</td><td>ASTRICam</td><td>SST_ASTRI_ASTRICam</td></tr>
+<tr><td>92</td><td>-239.19699096679688</td><td>-1109.7349853515625</td><td>5.0</td><td>ASTRI</td><td>SST</td><td>2</td><td>ASTRICam</td><td>SST_ASTRI_ASTRICam</td></tr>
+<tr><td>93</td><td>-956.7870483398438</td><td>739.822998046875</td><td>5.0</td><td>ASTRI</td><td>SST</td><td>2</td><td>ASTRICam</td><td>SST_ASTRI_ASTRICam</td></tr>
+<tr><td>94</td><td>-956.7870483398438</td><td>-739.822998046875</td><td>5.0</td><td>ASTRI</td><td>SST</td><td>2</td><td>ASTRICam</td><td>SST_ASTRI_ASTRICam</td></tr>
+<tr><td>95</td><td>1195.9840087890625</td><td>369.9119873046875</td><td>5.0</td><td>ASTRI</td><td>SST</td><td>2</td><td>ASTRICam</td><td>SST_ASTRI_ASTRICam</td></tr>
+<tr><td>96</td><td>1195.9840087890625</td><td>-369.9119873046875</td><td>5.0</td><td>ASTRI</td><td>SST</td><td>2</td><td>ASTRICam</td><td>SST_ASTRI_ASTRICam</td></tr>
+<tr><td>97</td><td>-1195.9840087890625</td><td>369.9119873046875</td><td>5.0</td><td>ASTRI</td><td>SST</td><td>2</td><td>ASTRICam</td><td>SST_ASTRI_ASTRICam</td></tr>
+<tr><td>98</td><td>-1195.9840087890625</td><td>-369.9119873046875</td><td>5.0</td><td>ASTRI</td><td>SST</td><td>2</td><td>ASTRICam</td><td>SST_ASTRI_ASTRICam</td></tr>
+</table></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">subarray</span><span class="o">.</span><span class="n">tel</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+TelescopeDescription(type=LST, name=LST, optics=LST, camera=LSTCam)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">subarray</span><span class="o">.</span><span class="n">tel</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">camera</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+CameraDescription(camera_name=LSTCam, geometry=LSTCam, readout=LSTCam)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">subarray</span><span class="o">.</span><span class="n">tel</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">optics</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+OpticsDescription(name=LST, equivalent_focal_length=28.00 m, num_mirros=1, mirror_area=386.73 m2)
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">tel</span> <span class="o">=</span> <span class="n">subarray</span><span class="o">.</span><span class="n">tel</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">tel</span><span class="o">.</span><span class="n">camera</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+CameraDescription(camera_name=LSTCam, geometry=LSTCam, readout=LSTCam)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">tel</span><span class="o">.</span><span class="n">optics</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+OpticsDescription(name=LST, equivalent_focal_length=28.00 m, num_mirros=1, mirror_area=386.73 m2)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">tel</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">pix_x</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math notranslate nohighlight">
+$[0,~-0.0094487737,~-0.047244198,~\dots,~-0.6519913,~-0.6141959,~-0.62364468] \; \mathrm{m}$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">tel</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">to_table</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<i>Table length=1855</i>
+<table id="table139706831474024" class="table-striped table-bordered table-condensed">
+<thead><tr><th>pix_id</th><th>pix_x</th><th>pix_y</th><th>pix_area</th></tr></thead>
+<thead><tr><th></th><th>m</th><th>m</th><th>m2</th></tr></thead>
+<thead><tr><th>int64</th><th>float64</th><th>float64</th><th>float64</th></tr></thead>
+<tr><td>0</td><td>0.0</td><td>0.0</td><td>0.002079326892271638</td></tr>
+<tr><td>1</td><td>-0.00944877371419763</td><td>0.049099091130118636</td><td>0.002079326892271638</td></tr>
+<tr><td>2</td><td>-0.04724419824666762</td><td>0.01636690782283136</td><td>0.002079326892271638</td></tr>
+<tr><td>3</td><td>-0.037795424532469986</td><td>-0.03273218330728728</td><td>0.002079326892271638</td></tr>
+<tr><td>4</td><td>0.00944877371419763</td><td>-0.049099091130118636</td><td>0.002079326892271638</td></tr>
+<tr><td>5</td><td>0.04724419824666762</td><td>-0.01636690782283136</td><td>0.002079326892271638</td></tr>
+<tr><td>6</td><td>0.037795424532469986</td><td>0.03273218330728728</td><td>0.002079326892271638</td></tr>
+<tr><td>7</td><td>0.06614174532306863</td><td>-0.11456508825398498</td><td>0.002079326892271638</td></tr>
+<tr><td>8</td><td>0.056692972312859496</td><td>-0.06546600078203366</td><td>0.002079326892271638</td></tr>
+<tr><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+<tr><td>1845</td><td>-0.71814285557966</td><td>-0.8510456772325419</td><td>0.002079326892271638</td></tr>
+<tr><td>1846</td><td>-0.6803376189247268</td><td>-0.8183116303101989</td><td>0.002079326892271638</td></tr>
+<tr><td>1847</td><td>-0.6897863947508899</td><td>-0.7692125282055784</td><td>0.002079326892271638</td></tr>
+<tr><td>1848</td><td>-0.6614400785362163</td><td>-0.9165097759887632</td><td>0.002079326892271638</td></tr>
+<tr><td>1849</td><td>-0.6708888430985637</td><td>-0.8674107324148195</td><td>0.002079326892271638</td></tr>
+<tr><td>1850</td><td>-0.7086940797534969</td><td>-0.9001447793371624</td><td>0.002079326892271638</td></tr>
+<tr><td>1851</td><td>-0.6992453039273338</td><td>-0.949243881441783</td><td>0.002079326892271638</td></tr>
+<tr><td>1852</td><td>-0.6519913027100532</td><td>-0.9656088780933837</td><td>0.002079326892271638</td></tr>
+<tr><td>1853</td><td>-0.6141958992088292</td><td>-0.9328767234921034</td><td>0.002079326892271638</td></tr>
+<tr><td>1854</td><td>-0.6236446750349923</td><td>-0.8837776213874828</td><td>0.002079326892271638</td></tr>
+</table></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">tel</span><span class="o">.</span><span class="n">optics</span><span class="o">.</span><span class="n">mirror_area</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math notranslate nohighlight">
+$386.73325 \; \mathrm{m^{2}}$</div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">ctapipe.visualization</span> <span class="kn">import</span> <span class="n">CameraDisplay</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">disp</span> <span class="o">=</span> <span class="n">CameraDisplay</span><span class="p">(</span><span class="n">tel</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">geometry</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/tutorials_ctapipe_handson_32_0.png" src="../_images/tutorials_ctapipe_handson_32_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">disp</span> <span class="o">=</span> <span class="n">CameraDisplay</span><span class="p">(</span><span class="n">tel</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">geometry</span><span class="p">)</span>
+<span class="n">disp</span><span class="o">.</span><span class="n">image</span> <span class="o">=</span> <span class="n">r0tel</span><span class="o">.</span><span class="n">waveform</span><span class="p">[</span><span class="mi">0</span><span class="p">,:,</span><span class="mi">10</span><span class="p">]</span>  <span class="c1"># display channel 0, sample 0 (try others like 10)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/tutorials_ctapipe_handson_33_0.png" src="../_images/tutorials_ctapipe_handson_33_0.png" />
+</div>
+</div>
+<p>** aside: ** show demo using a CameraDisplay in interactive mode in ipython rather than notebook</p>
+</div>
+<div class="section" id="Part-3:-Apply-some-calibration-and-trace-integration">
+<h2>Part 3: Apply some calibration and trace integration<a class="headerlink" href="#Part-3:-Apply-some-calibration-and-trace-integration" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">ctapipe.calib</span> <span class="kn">import</span> <span class="n">CameraCalibrator</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">calib</span> <span class="o">=</span> <span class="n">CameraCalibrator</span><span class="p">(</span><span class="n">subarray</span><span class="o">=</span><span class="n">subarray</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">event_source</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">max_events</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+    <span class="n">calib</span><span class="p">(</span><span class="n">event</span><span class="p">)</span> <span class="c1"># fills in r1, dl0, and dl1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">dl1</span><span class="o">.</span><span class="n">tel</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+dict_keys([13, 21, 25, 34])
+dict_keys([7, 13, 16, 19, 25, 28, 34, 36, 42])
+dict_keys([28, 46, 58, 68])
+dict_keys([2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 18, 19, 20, 21])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">event</span><span class="o">.</span><span class="n">dl1</span><span class="o">.</span><span class="n">tel</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+ctapipe.containers.DL1CameraContainer:
+                         image: Numpy array of camera image, after waveform
+                                extraction.Shape: (n_pixel)
+                     peak_time: Numpy array containing position of the peak of
+                                the pulse as determined by the extractor. Shape:
+                                (n_pixel)
+                    image_mask: Boolean numpy array where True means the pixel
+                                has passed cleaning. Shape: (n_pixel)
+                  parameters.*: Parameters derived from images
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">dl1tel</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">dl1</span><span class="o">.</span><span class="n">tel</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">dl1tel</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span> <span class="c1"># note this will be gain-selected in next version, so will be just 1D array of 1855</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(1855,)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">dl1tel</span><span class="o">.</span><span class="n">peak_time</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([18.29361474, 26.        , 21.        , ...,  6.        ,
+        5.19845865,  4.98857646])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">CameraDisplay</span><span class="p">(</span><span class="n">tel</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">geometry</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="n">dl1tel</span><span class="o">.</span><span class="n">image</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;ctapipe.visualization.mpl_camera.CameraDisplay at 0x7f1004c43d68&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/tutorials_ctapipe_handson_43_1.png" src="../_images/tutorials_ctapipe_handson_43_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">CameraDisplay</span><span class="p">(</span><span class="n">tel</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">geometry</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="n">dl1tel</span><span class="o">.</span><span class="n">peak_time</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;ctapipe.visualization.mpl_camera.CameraDisplay at 0x7f10041714e0&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/tutorials_ctapipe_handson_44_1.png" src="../_images/tutorials_ctapipe_handson_44_1.png" />
+</div>
+</div>
+<p>Now for Hillas Parameters</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">ctapipe.image</span> <span class="kn">import</span> <span class="n">hillas_parameters</span><span class="p">,</span> <span class="n">tailcuts_clean</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">image</span> <span class="o">=</span> <span class="n">dl1tel</span><span class="o">.</span><span class="n">image</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">tailcuts_clean</span><span class="p">(</span><span class="n">tel</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">geometry</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">picture_thresh</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">boundary_thresh</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">mask</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([False, False, False, ..., False, False, False])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">CameraDisplay</span><span class="p">(</span><span class="n">tel</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">geometry</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="n">mask</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;ctapipe.visualization.mpl_camera.CameraDisplay at 0x7f1004d2cc18&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/tutorials_ctapipe_handson_48_1.png" src="../_images/tutorials_ctapipe_handson_48_1.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">cleaned</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">cleaned</span><span class="p">[</span><span class="o">~</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">disp</span> <span class="o">=</span> <span class="n">CameraDisplay</span><span class="p">(</span><span class="n">tel</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">geometry</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="n">cleaned</span><span class="p">)</span>
+<span class="n">disp</span><span class="o">.</span><span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">coolwarm</span>
+<span class="n">disp</span><span class="o">.</span><span class="n">add_colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(0, 1.0)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/tutorials_ctapipe_handson_50_1.png" src="../_images/tutorials_ctapipe_handson_50_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">params</span> <span class="o">=</span> <span class="n">hillas_parameters</span><span class="p">(</span><span class="n">tel</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">geometry</span><span class="p">,</span> <span class="n">cleaned</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;intensity&#39;: 450.5841774121861,
+ &#39;kurtosis&#39;: 1.973483101041702,
+ &#39;length&#39;: &lt;Quantity 0.2454293 m&gt;,
+ &#39;phi&#39;: &lt;Angle 2.75740724 rad&gt;,
+ &#39;psi&#39;: &lt;Angle 1.08619502 rad&gt;,
+ &#39;r&#39;: &lt;Quantity 1.052376 m&gt;,
+ &#39;skewness&#39;: 0.24604061670966082,
+ &#39;width&#39;: &lt;Quantity 0.03954244 m&gt;,
+ &#39;x&#39;: &lt;Quantity -0.97566205 m&gt;,
+ &#39;y&#39;: &lt;Quantity 0.39443479 m&gt;}
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">disp</span> <span class="o">=</span> <span class="n">CameraDisplay</span><span class="p">(</span><span class="n">tel</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">geometry</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="n">cleaned</span><span class="p">)</span>
+<span class="n">disp</span><span class="o">.</span><span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">coolwarm</span>
+<span class="n">disp</span><span class="o">.</span><span class="n">add_colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">disp</span><span class="o">.</span><span class="n">overlay_moments</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/tutorials_ctapipe_handson_52_0.png" src="../_images/tutorials_ctapipe_handson_52_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="Part-4:-Let’s-put-it-all-together:">
+<h2>Part 4: Let’s put it all together:<a class="headerlink" href="#Part-4:-Let’s-put-it-all-together:" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>loop over events, selecting only telescopes of the same type (e.g. LST:LSTCam)</p></li>
+<li><p>for each event, apply calibration/trace integration</p></li>
+<li><p>calculate Hillas parameters</p></li>
+<li><p>write out all hillas paremeters to a file that can be loaded with Pandas</p></li>
+</ul>
+<p>first let’s select only those telescopes with LST:LSTCam</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">subarray</span><span class="o">.</span><span class="n">telescope_types</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[TelescopeDescription(type=MST, name=MST, optics=MST, camera=FlashCam),
+ TelescopeDescription(type=SST, name=ASTRI, optics=ASTRI, camera=ASTRICam),
+ TelescopeDescription(type=LST, name=LST, optics=LST, camera=LSTCam)]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">subarray</span><span class="o">.</span><span class="n">get_tel_ids_for_type</span><span class="p">(</span><span class="s2">&quot;LST_LST_LSTCam&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[1, 2, 3, 4]
+</pre></div></div>
+</div>
+<p>Now let’s write out program</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">data</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">get_dataset_path</span><span class="p">(</span><span class="s2">&quot;gamma_test_large.simtel.gz&quot;</span><span class="p">)</span>
+<span class="n">source</span> <span class="o">=</span> <span class="n">event_source</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">allowed_tels</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span>  <span class="n">max_events</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># remove the max_events limit to get more stats</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">source</span><span class="p">:</span>
+    <span class="n">calib</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">tel_id</span><span class="p">,</span> <span class="n">tel_data</span> <span class="ow">in</span> <span class="n">event</span><span class="o">.</span><span class="n">dl1</span><span class="o">.</span><span class="n">tel</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">tel</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">subarray</span><span class="o">.</span><span class="n">tel</span><span class="p">[</span><span class="n">tel_id</span><span class="p">]</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">tailcuts_clean</span><span class="p">(</span><span class="n">tel</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">geometry</span><span class="p">,</span> <span class="n">tel_data</span><span class="o">.</span><span class="n">image</span><span class="p">)</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="n">hillas_parameters</span><span class="p">(</span><span class="n">tel</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">geometry</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span> <span class="n">tel_data</span><span class="o">.</span><span class="n">image</span><span class="p">[</span><span class="n">mask</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">ctapipe.io</span> <span class="kn">import</span> <span class="n">HDF5TableWriter</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">with</span> <span class="n">HDF5TableWriter</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;hillas.h5&#39;</span><span class="p">,</span> <span class="n">group_name</span><span class="o">=</span><span class="s1">&#39;dl1&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">as</span> <span class="n">writer</span><span class="p">:</span>
+
+    <span class="n">source</span> <span class="o">=</span> <span class="n">event_source</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">allowed_tels</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span>  <span class="n">max_events</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">source</span><span class="p">:</span>
+        <span class="n">calib</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">tel_id</span><span class="p">,</span> <span class="n">tel_data</span> <span class="ow">in</span> <span class="n">event</span><span class="o">.</span><span class="n">dl1</span><span class="o">.</span><span class="n">tel</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">tel</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">subarray</span><span class="o">.</span><span class="n">tel</span><span class="p">[</span><span class="n">tel_id</span><span class="p">]</span>
+            <span class="n">mask</span> <span class="o">=</span> <span class="n">tailcuts_clean</span><span class="p">(</span><span class="n">tel</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">geometry</span><span class="p">,</span> <span class="n">tel_data</span><span class="o">.</span><span class="n">image</span><span class="p">)</span>
+            <span class="n">params</span> <span class="o">=</span> <span class="n">hillas_parameters</span><span class="p">(</span><span class="n">tel</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">geometry</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span> <span class="n">tel_data</span><span class="o">.</span><span class="n">image</span><span class="p">[</span><span class="n">mask</span><span class="p">])</span>
+            <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;hillas&quot;</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="We-can-now-load-in-the-file-we-created-and-plot-it">
+<h3>We can now load in the file we created and plot it<a class="headerlink" href="#We-can-now-load-in-the-file-we-created-and-plot-it" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>ls *.h5
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+hillas.h5
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">hillas</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_hdf</span><span class="p">(</span><span class="s2">&quot;hillas.h5&quot;</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">&#39;/dl1/hillas&#39;</span><span class="p">)</span>
+<span class="n">hillas</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>intensity</th>
+      <th>x</th>
+      <th>y</th>
+      <th>r</th>
+      <th>phi</th>
+      <th>length</th>
+      <th>width</th>
+      <th>psi</th>
+      <th>skewness</th>
+      <th>kurtosis</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>487.476214</td>
+      <td>-0.972286</td>
+      <td>0.384784</td>
+      <td>1.045657</td>
+      <td>158.408735</td>
+      <td>0.242312</td>
+      <td>0.046845</td>
+      <td>63.145178</td>
+      <td>0.321630</td>
+      <td>2.002041</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>24235.389945</td>
+      <td>-0.573681</td>
+      <td>0.723743</td>
+      <td>0.923533</td>
+      <td>128.402429</td>
+      <td>0.214123</td>
+      <td>0.083103</td>
+      <td>-75.990548</td>
+      <td>1.663777</td>
+      <td>6.299195</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>81.252290</td>
+      <td>0.563962</td>
+      <td>0.712100</td>
+      <td>0.908372</td>
+      <td>51.621855</td>
+      <td>0.045043</td>
+      <td>0.015390</td>
+      <td>63.564682</td>
+      <td>0.463036</td>
+      <td>2.797550</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>101.234466</td>
+      <td>0.340860</td>
+      <td>0.896085</td>
+      <td>0.958725</td>
+      <td>69.173821</td>
+      <td>0.051080</td>
+      <td>0.020644</td>
+      <td>81.540893</td>
+      <td>0.206285</td>
+      <td>2.098711</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>76.273207</td>
+      <td>-0.457182</td>
+      <td>0.851789</td>
+      <td>0.966727</td>
+      <td>118.223829</td>
+      <td>0.044145</td>
+      <td>0.020285</td>
+      <td>73.286384</td>
+      <td>-0.310947</td>
+      <td>2.766870</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>30.754363</td>
+      <td>-0.658798</td>
+      <td>0.686477</td>
+      <td>0.951455</td>
+      <td>133.821326</td>
+      <td>0.033088</td>
+      <td>0.000001</td>
+      <td>-19.104678</td>
+      <td>-0.060794</td>
+      <td>2.277771</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>148.823297</td>
+      <td>-1.010522</td>
+      <td>0.264090</td>
+      <td>1.044461</td>
+      <td>165.353912</td>
+      <td>0.107545</td>
+      <td>0.035770</td>
+      <td>40.042441</td>
+      <td>1.325198</td>
+      <td>5.088021</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>263.484925</td>
+      <td>-1.007649</td>
+      <td>-0.031596</td>
+      <td>1.008144</td>
+      <td>-178.204001</td>
+      <td>0.061533</td>
+      <td>0.047032</td>
+      <td>-13.703852</td>
+      <td>0.437843</td>
+      <td>2.732760</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>92.449732</td>
+      <td>-0.656211</td>
+      <td>0.144985</td>
+      <td>0.672037</td>
+      <td>167.541102</td>
+      <td>0.413698</td>
+      <td>0.029936</td>
+      <td>15.975587</td>
+      <td>1.970612</td>
+      <td>5.054535</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>108.459053</td>
+      <td>-1.109201</td>
+      <td>0.179422</td>
+      <td>1.123619</td>
+      <td>170.811524</td>
+      <td>0.100173</td>
+      <td>0.019330</td>
+      <td>48.966843</td>
+      <td>0.802975</td>
+      <td>2.236591</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>198.120088</td>
+      <td>0.666616</td>
+      <td>-0.018790</td>
+      <td>0.666881</td>
+      <td>-1.614607</td>
+      <td>0.299590</td>
+      <td>0.044711</td>
+      <td>-34.843601</td>
+      <td>-2.760956</td>
+      <td>8.831838</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>248.486639</td>
+      <td>0.765836</td>
+      <td>-0.547481</td>
+      <td>0.941403</td>
+      <td>-35.560213</td>
+      <td>0.108565</td>
+      <td>0.032621</td>
+      <td>77.708622</td>
+      <td>0.118580</td>
+      <td>2.436855</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>190.280798</td>
+      <td>0.418471</td>
+      <td>-0.307474</td>
+      <td>0.519287</td>
+      <td>-36.306809</td>
+      <td>0.112634</td>
+      <td>0.024821</td>
+      <td>27.427282</td>
+      <td>0.424416</td>
+      <td>2.664615</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>17.267194</td>
+      <td>-0.664943</td>
+      <td>0.627072</td>
+      <td>0.913985</td>
+      <td>136.678923</td>
+      <td>0.023731</td>
+      <td>0.000000</td>
+      <td>40.893720</td>
+      <td>-0.662687</td>
+      <td>1.439154</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>54.082850</td>
+      <td>-0.200106</td>
+      <td>1.015972</td>
+      <td>1.035491</td>
+      <td>101.142350</td>
+      <td>0.035135</td>
+      <td>0.012037</td>
+      <td>-69.567000</td>
+      <td>-0.347361</td>
+      <td>1.784459</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>107.240587</td>
+      <td>-0.537786</td>
+      <td>0.798414</td>
+      <td>0.962642</td>
+      <td>123.962933</td>
+      <td>0.130395</td>
+      <td>0.028054</td>
+      <td>-40.199983</td>
+      <td>1.022891</td>
+      <td>3.151161</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>185.015337</td>
+      <td>-0.638654</td>
+      <td>0.844318</td>
+      <td>1.058656</td>
+      <td>127.104366</td>
+      <td>0.089454</td>
+      <td>0.067038</td>
+      <td>11.048914</td>
+      <td>1.629045</td>
+      <td>4.843367</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>61.324660</td>
+      <td>0.044177</td>
+      <td>-0.433904</td>
+      <td>0.436148</td>
+      <td>-84.186591</td>
+      <td>0.092247</td>
+      <td>0.012070</td>
+      <td>-75.388561</td>
+      <td>-0.033988</td>
+      <td>1.214134</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>488.503567</td>
+      <td>-0.009119</td>
+      <td>-0.404266</td>
+      <td>0.404368</td>
+      <td>-91.292178</td>
+      <td>0.231843</td>
+      <td>0.034015</td>
+      <td>-78.692361</td>
+      <td>-0.077485</td>
+      <td>1.850574</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>151.799578</td>
+      <td>0.223207</td>
+      <td>-0.504964</td>
+      <td>0.552095</td>
+      <td>-66.153343</td>
+      <td>0.129388</td>
+      <td>0.024831</td>
+      <td>88.796737</td>
+      <td>0.677151</td>
+      <td>2.326918</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>105.300176</td>
+      <td>-0.184234</td>
+      <td>-0.821752</td>
+      <td>0.842151</td>
+      <td>-102.636590</td>
+      <td>0.478566</td>
+      <td>0.097434</td>
+      <td>-50.775228</td>
+      <td>-2.041619</td>
+      <td>5.207802</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">_</span> <span class="o">=</span> <span class="n">hillas</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/tutorials_ctapipe_handson_65_0.png" src="../_images/tutorials_ctapipe_handson_65_0.png" />
+</div>
+</div>
+<p>If you do this yourself, loop over more events to get better statistics</p>
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {"f068fa54d48b4f99ab8bae055fc54dc1": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "ac8a773414c14b1e82bdba1c2cccb86f": {"model_name": "VBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": ["widget-interact"], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "VBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "VBoxView", "box_style": "", "children": ["IPY_MODEL_99952b62d62a44b09245f3a8bf227ade", "IPY_MODEL_e7d9c0e569824dfebefefdf0bb173368", "IPY_MODEL_bdeee94ceb40499dbe2117b62e205112"], "layout": "IPY_MODEL_f068fa54d48b4f99ab8bae055fc54dc1"}}, "5b8da7faffbc4d659fb058a6c173bcd4": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "e6ba8375dacc497eb4cf482fc0ff0acf": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "99952b62d62a44b09245f3a8bf227ade": {"model_name": "IntSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "IntSliderView", "continuous_update": true, "description": "chan", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_5b8da7faffbc4d659fb058a6c173bcd4", "max": 1, "min": 0, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 1, "style": "IPY_MODEL_e6ba8375dacc497eb4cf482fc0ff0acf", "value": 0}}, "7ccdc1b351704be3af5044d1d60cda92": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "8ad020dbd3244ca897abde0ebdbacbb9": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "e7d9c0e569824dfebefefdf0bb173368": {"model_name": "IntSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "IntSliderView", "continuous_update": true, "description": "pix_id", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_7ccdc1b351704be3af5044d1d60cda92", "max": 600, "min": -200, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 1, "style": "IPY_MODEL_8ad020dbd3244ca897abde0ebdbacbb9", "value": 200}}, "0167eca9fb18478f8a9be57c662843dc": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "bdeee94ceb40499dbe2117b62e205112": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_0167eca9fb18478f8a9be57c662843dc", "msg_id": "", "outputs": []}}}, "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="coordinates_example.html" class="btn btn-neutral float-right" title="Coordinates usage in ctapipe" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Tutorials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright ctapipe developers.  Last updated 18 May 2020 11:14
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

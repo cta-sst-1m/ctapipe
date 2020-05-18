@@ -1,0 +1,17 @@
+CameraCalibrator
+================
+
+.. currentmodule:: ctapipe.calib.camera
+
+.. autoclass:: CameraCalibrator
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~CameraCalibrator.__call__
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: __call__

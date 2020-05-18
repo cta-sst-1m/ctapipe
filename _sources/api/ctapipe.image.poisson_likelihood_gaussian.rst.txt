@@ -1,0 +1,6 @@
+poisson_likelihood_gaussian
+===========================
+
+.. currentmodule:: ctapipe.image
+
+.. autofunction:: poisson_likelihood_gaussian

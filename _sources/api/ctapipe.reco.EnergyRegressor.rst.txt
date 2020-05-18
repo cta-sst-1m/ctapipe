@@ -1,0 +1,21 @@
+EnergyRegressor
+===============
+
+.. currentmodule:: ctapipe.reco
+
+.. autoclass:: EnergyRegressor
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~EnergyRegressor.load
+      ~EnergyRegressor.predict_by_event
+      ~EnergyRegressor.predict_by_telescope_type
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: load
+   .. automethod:: predict_by_event
+   .. automethod:: predict_by_telescope_type

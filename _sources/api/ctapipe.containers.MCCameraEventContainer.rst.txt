@@ -1,0 +1,33 @@
+MCCameraEventContainer
+======================
+
+.. currentmodule:: ctapipe.containers
+
+.. autoclass:: MCCameraEventContainer
+   :show-inheritance:
+
+   .. rubric:: Attributes Summary
+
+   .. autosummary::
+
+      ~MCCameraEventContainer.altitude_cor
+      ~MCCameraEventContainer.altitude_raw
+      ~MCCameraEventContainer.azimuth_cor
+      ~MCCameraEventContainer.azimuth_raw
+      ~MCCameraEventContainer.dc_to_pe
+      ~MCCameraEventContainer.meta
+      ~MCCameraEventContainer.pedestal
+      ~MCCameraEventContainer.prefix
+      ~MCCameraEventContainer.true_image
+
+   .. rubric:: Attributes Documentation
+
+   .. autoattribute:: altitude_cor
+   .. autoattribute:: altitude_raw
+   .. autoattribute:: azimuth_cor
+   .. autoattribute:: azimuth_raw
+   .. autoattribute:: dc_to_pe
+   .. autoattribute:: meta
+   .. autoattribute:: pedestal
+   .. autoattribute:: prefix
+   .. autoattribute:: true_image

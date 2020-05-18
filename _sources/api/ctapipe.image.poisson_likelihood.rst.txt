@@ -1,0 +1,6 @@
+poisson_likelihood
+==================
+
+.. currentmodule:: ctapipe.image
+
+.. autofunction:: poisson_likelihood

@@ -1,0 +1,6 @@
+concentration
+=============
+
+.. currentmodule:: ctapipe.image
+
+.. autofunction:: concentration

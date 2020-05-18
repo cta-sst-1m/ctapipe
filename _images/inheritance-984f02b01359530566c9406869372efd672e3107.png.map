@@ -1,0 +1,12 @@
+<map id="inheritance9588b063c6" name="inheritance9588b063c6">
+<area shape="rect" id="node1" title="Base class of all Components." alt="" coords="390,67,472,89"/>
+<area shape="rect" id="node6" title="Provides the functionality to seek through a" alt="" coords="512,4,600,26"/>
+<area shape="rect" id="node7" title="Parent class for EventFileReaders of different sources." alt="" coords="513,46,599,67"/>
+<area shape="rect" id="node9" href="../../api/ctapipe.io.tableio.TableReader.html#ctapipe.io.tableio.TableReader" target="_top" title="Base class for row&#45;wise table readers. Generally methods that read a" alt="" coords="513,88,598,109"/>
+<area shape="rect" id="node11" href="../../api/ctapipe.io.tableio.TableWriter.html#ctapipe.io.tableio.TableWriter" target="_top" title="Base class for writing &#160;Container classes as rows of an output table," alt="" coords="516,129,596,150"/>
+<area shape="rect" id="node4" title="Enum of the different Data Levels" alt="" coords="147,26,221,47"/>
+<area shape="rect" id="node5" title="Generic enumeration." alt="" coords="25,26,86,47"/>
+<area shape="rect" id="node8" href="../../api/ctapipe.io.hdf5tableio.HDF5TableReader.html#ctapipe.io.hdf5tableio.HDF5TableReader" target="_top" title="Reader that reads a single row of an HDF5 table at once into a Container." alt="" coords="644,88,759,109"/>
+<area shape="rect" id="node10" href="../../api/ctapipe.io.hdf5tableio.HDF5TableWriter.html#ctapipe.io.hdf5tableio.HDF5TableWriter" target="_top" title="A very basic table writer that can take a container (or more than one)" alt="" coords="647,129,757,150"/>
+<area shape="rect" id="node12" title="The base class for all classes that have descriptors." alt="" coords="4,67,107,89"/>
+</map>

@@ -1,0 +1,29 @@
+ImageParametersContainer
+========================
+
+.. currentmodule:: ctapipe.containers
+
+.. autoclass:: ImageParametersContainer
+   :show-inheritance:
+
+   .. rubric:: Attributes Summary
+
+   .. autosummary::
+
+      ~ImageParametersContainer.concentration
+      ~ImageParametersContainer.hillas
+      ~ImageParametersContainer.leakage
+      ~ImageParametersContainer.meta
+      ~ImageParametersContainer.morphology
+      ~ImageParametersContainer.prefix
+      ~ImageParametersContainer.timing
+
+   .. rubric:: Attributes Documentation
+
+   .. autoattribute:: concentration
+   .. autoattribute:: hillas
+   .. autoattribute:: leakage
+   .. autoattribute:: meta
+   .. autoattribute:: morphology
+   .. autoattribute:: prefix
+   .. autoattribute:: timing

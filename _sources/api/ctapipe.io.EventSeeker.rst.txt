@@ -1,0 +1,7 @@
+EventSeeker
+===========
+
+.. currentmodule:: ctapipe.io
+
+.. autoclass:: EventSeeker
+   :show-inheritance:

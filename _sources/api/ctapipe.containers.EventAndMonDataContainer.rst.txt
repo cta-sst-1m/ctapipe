@@ -1,0 +1,21 @@
+EventAndMonDataContainer
+========================
+
+.. currentmodule:: ctapipe.containers
+
+.. autoclass:: EventAndMonDataContainer
+   :show-inheritance:
+
+   .. rubric:: Attributes Summary
+
+   .. autosummary::
+
+      ~EventAndMonDataContainer.meta
+      ~EventAndMonDataContainer.mon
+      ~EventAndMonDataContainer.prefix
+
+   .. rubric:: Attributes Documentation
+
+   .. autoattribute:: meta
+   .. autoattribute:: mon
+   .. autoattribute:: prefix

@@ -1,0 +1,23 @@
+MCDL1CameraContainer
+====================
+
+.. currentmodule:: ctapipe.containers
+
+.. autoclass:: MCDL1CameraContainer
+   :show-inheritance:
+
+   .. rubric:: Attributes Summary
+
+   .. autosummary::
+
+      ~MCDL1CameraContainer.meta
+      ~MCDL1CameraContainer.prefix
+      ~MCDL1CameraContainer.true_image
+      ~MCDL1CameraContainer.true_parameters
+
+   .. rubric:: Attributes Documentation
+
+   .. autoattribute:: meta
+   .. autoattribute:: prefix
+   .. autoattribute:: true_image
+   .. autoattribute:: true_parameters

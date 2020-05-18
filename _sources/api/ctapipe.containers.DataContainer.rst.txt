@@ -1,0 +1,43 @@
+DataContainer
+=============
+
+.. currentmodule:: ctapipe.containers
+
+.. autoclass:: DataContainer
+   :show-inheritance:
+
+   .. rubric:: Attributes Summary
+
+   .. autosummary::
+
+      ~DataContainer.calibration
+      ~DataContainer.count
+      ~DataContainer.dl0
+      ~DataContainer.dl1
+      ~DataContainer.dl2
+      ~DataContainer.index
+      ~DataContainer.mc
+      ~DataContainer.mcheader
+      ~DataContainer.meta
+      ~DataContainer.pointing
+      ~DataContainer.prefix
+      ~DataContainer.r0
+      ~DataContainer.r1
+      ~DataContainer.trigger
+
+   .. rubric:: Attributes Documentation
+
+   .. autoattribute:: calibration
+   .. autoattribute:: count
+   .. autoattribute:: dl0
+   .. autoattribute:: dl1
+   .. autoattribute:: dl2
+   .. autoattribute:: index
+   .. autoattribute:: mc
+   .. autoattribute:: mcheader
+   .. autoattribute:: meta
+   .. autoattribute:: pointing
+   .. autoattribute:: prefix
+   .. autoattribute:: r0
+   .. autoattribute:: r1
+   .. autoattribute:: trigger

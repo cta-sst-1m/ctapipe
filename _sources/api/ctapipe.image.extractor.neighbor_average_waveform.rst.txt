@@ -1,0 +1,6 @@
+neighbor_average_waveform
+=========================
+
+.. currentmodule:: ctapipe.image.extractor
+
+.. autofunction:: neighbor_average_waveform
